@@ -1,63 +1,17 @@
-Ei part e amra dekhbo kivabe image soho amra akta form insert korte pari:
-
-akta form image soho insert korte hole amader akta pakage install korte hobe :
-pakage name: interventiontion.
-
-
-First Step:
-pakage install:
-curl -sS https://getcomposer.org/installer | php
-php composer.phar require intervention/image
-
-
-
-Second Step:
-After you have installed Intervention Image, open your Laravel config file config/app.php and add the following lines.
-In the $providers array add the service providers for this package.
-
-
-
-
-Intervention\Image\ImageServiceProvider::class
-
-Add the facade of this package to the $aliases array.
-
-
-
-
-'Image' => Intervention\Image\Facades\Image::class
-
-Now the Image Class will be auto-loaded by Laravel.
-
-
-
-
-Step Three:
-Now publish intervention js
-php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravelRecent"
-
-step Four:
-
-
-
-
-
-
-Code:
 
 <template>
 
     <div class="row justify-content-center">
         <div class="col-lg-12">
-            <div class="card shadow-lg border-0 rounded-lg mt-5">
+            <div class="card border-0 rounded-lg mt-5">
                 <div class="card-header  d-flex align-items-center justify-content-between mt-4 mb-0">
                     <h3 class="text-left font-weight-light my-4">Insert New Employee</h3>
                     <button class="btn btn-success">
-                        <router-link to="/all-Employee" class="text-white">All Employee</router-link>
+                        <router-link to="/employees" class="text-white">All Employee</router-link>
                     </button>
                 </div>
-                <div class="card-body">
-                    <form @submit.prevent="employee" enctype="multipart/form-data">
+                <div class="card-body" style="border: 1px solid antiquewhite;">
+                    <form @submit.prevent="employeeInsert" enctype="multipart/form-data">
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -127,7 +81,7 @@ Code:
                                 <!-- <div class="col-md-4"> -->
                                 <div class="form-group">
                                     <label class="small mb-1">Insert Photo</label><br>
-                                    <input type="file" class="btn btn-info" @change="onSubmitChange" id="">
+                                    <input type="file" class="btn btn-info" @change="onfileselected" id="">
                                     <small class="text-danger" v-if="errors.photo">{{errors.photo[0]}}</small>
                                 </div>
                                 <!-- </div> -->
@@ -154,7 +108,6 @@ Code:
 
 
 <script>
-    import notification from "../../helpers/notification";
 
     export default {
         name: "employee",
@@ -175,42 +128,38 @@ Code:
                     photo: null,
                     phone: null
 
-
                 },
                 errors: {}
             }
         },
-        methods: {
-            employee() {
 
-            },
-            onSubmitChange(event) {
-                let file = event.target.files[0]
 
-                if (file.size > 1048770) {
-                    Notifications.success()
-                } else {
+        methods:{
+            onfileselected(event){
+                let file = event.target.files[0];
+
+                if (file.size > 1048770){
+                    Notifications.image_validation()
+                }else {
                     let reader = new FileReader();
-                    reader.onload = event => {
+                    reader.onload = event =>{
                         this.form.photo = event.target.result
-
                         console.log(event.target.result)
-
-                    }
-                    reader.readAsDataURL(file);
+                    };
+                    reader.readAsDataURL(file)
 
                 }
-
-
             },
             employeeInsert(){
-                axios.post('/api/Employee')
+                axios.post ('/api/employee/',this.form)
                     .then(()=>{
-                        this.$router.push({name:'Employee'})
+                        this.$router.push({name: 'employee'})
+                        Notifications.success()
                     })
                     .catch(error => this.errors = error.response.data.errors)
             }
         }
+
     }
 
 </script>

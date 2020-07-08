@@ -35,7 +35,14 @@ class Notification{
             timeout: 1000
         }).show();
     }
-
+image_validation() {
+    new Noty({
+        type:"error",
+        layout:"topRight",
+        text: "OPPS ! image is more then 1MB !",
+        timeout: 1000
+    }).show();
+}
 }
 
 export default Notification = new Notification();

@@ -13,18 +13,18 @@
 
 
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Email" v-model="form.email">
+                    <input type="email" class="form-control form-control-lg backColor" id="exampleInputEmail1" placeholder="Email" v-model="form.email">
                       <small class="text-danger" v-if="errors.email">{{errors.email[0]}}</small>
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Password" v-model="form.password">
+                    <input type="password" class="form-control form-control-lg backColor" id="exampleInputUsername1" placeholder="Password" v-model="form.password">
                       <small class="text-danger" v-if="errors.password">{{errors.password[0]}}</small>
                   </div>
                   <!-- <div class="mb-4"> -->
                   <div class="mt-3">
                      <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGN In</button>
                    </div>
-                  <div class="text-center mt-4 font-weight-light"> Need a Account ? <router-link to="/register" class="text-primary">Register</router-link>
+                  <div class="text-center mt-4 font-weight-light text-white"> Need a Account ? <router-link to="/register" class="text-primary">Register</router-link>
                   </div>
 
 

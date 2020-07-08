@@ -11,27 +11,27 @@
                 <form class="pt-3" @submit.prevent='signup'>
 
                     <div class="form-group">
-                    <input type="text" class="form-control form-control-lg" id="exampleInputName" placeholder="name" v-model="form.name">
+                    <input type="text" class="form-control form-control-lg backColor" id="exampleInputName" placeholder="name" v-model="form.name">
                         <small class="text-danger" v-if="errors.name">{{errors.name[0]}}</small>
                   </div>
 
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-lg" id="exampleInputEmail" placeholder="Email" v-model="form.email">
+                    <input type="email" class="form-control form-control-lg backColor" id="exampleInputEmail" placeholder="Email" v-model="form.email">
                       <small class="text-danger" v-if="errors.email">{{errors.email[0]}}</small>
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="exampleInputUserPassword" placeholder="Password" v-model="form.password">
+                    <input type="password" class="form-control form-control-lg backColor" id="exampleInputUserPassword" placeholder="Password" v-model="form.password">
                       <small class="text-danger" v-if="errors.password">{{errors.password[0]}}</small>
                   </div>
 
                    <div class="form-group">
-                    <input type="password" class="form-control form-control-lg" id="exampleInputUserPassword2" placeholder="Confirm Password" >
+                    <input type="password" class="form-control form-control-lg backColor" id="exampleInputUserPassword2" placeholder="Confirm Password" >
                   </div>
                   <!-- <div class="mb-4"> -->
                   <div class="mt-3">
                      <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">SIGN UP</button>
                    </div>
-                  <div class="text-center mt-4 font-weight-light"> Already have Account ? <router-link to="/" class="text-primary">Login</router-link>
+                  <div class="text-center mt-4 font-weight-light text-white"> Already have Account ? <router-link to="/" class="text-primary">Login</router-link>
                   </div>
 
 
@@ -64,7 +64,7 @@
             }
         },
         methods:{
-            register(){
+            signup(){
 
                 axios.post('/api/auth/signup',this.form)
                     .then(response => {

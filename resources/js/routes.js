@@ -28,7 +28,7 @@ export const routes = [
 
     // Employee Start
     {path:'/employees',component:employee,name:'employee'},
-    {path:'/store-employee',component:storeemployee,name:'storeemployee'},
+    {path:'/store-employee',component:storeemployee,name:'Addemployee'},
 
     //suplier start
 
