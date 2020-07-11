@@ -18,7 +18,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $employee = DB::table('employees')->get();
-        dd($employee);
+        return response()->json($employee);
     }
 
     /**

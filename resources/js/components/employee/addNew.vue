@@ -113,7 +113,7 @@
         name: "employee",
         created() {
             if (!User.loggedIn()) {
-                this.$router.push({name: 'home'})
+                this.$router.push({name: '/'})
             }
         },
         data() {

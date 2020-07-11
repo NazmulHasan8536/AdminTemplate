@@ -25,7 +25,7 @@
                   </div>
 
                    <div class="form-group">
-                    <input type="password" class="form-control form-control-lg backColor" id="exampleInputUserPassword2" placeholder="Confirm Password" >
+                    <input type="password" class="form-control form-control-lg backColor" id="exampleInputUserPassword2"  v-model="form.password_confirmation" placeholder="Confirm Password" >
                   </div>
                   <!-- <div class="mb-4"> -->
                   <div class="mt-3">
@@ -45,10 +45,10 @@
       <!-- page-body-wrapper ends -->
 </template>
 
+
 <script>
     export default {
-        name: "register",
-        created() {
+        created(){
             if(User.loggedIn()){
                 this.$router.push({name:'home'})
             }
@@ -56,27 +56,30 @@
         data(){
             return{
                 form:{
-                    email: null,
-                    name:null,
-                    password: null
+                    email:null,
+                    password:null,
+                    name:null
                 },
-                errors:{}
+                errors:{},
             }
+
         },
         methods:{
             signup(){
 
                 axios.post('/api/auth/signup',this.form)
-                    .then(response => {
-                        User.ResponseTokenLogin(response)
+                    .then(res =>{
+                        User.ResponseTokenLogin(res)
+                        // Toaster
                         Toast.fire({
                             icon: 'success',
-                            title: 'Account Created Successfully'
+                            title: 'Signed in successfully'
                         })
-                        this.$router.push({name:'home'})
-                    })
-                    .catch(error => this.errors = (error.response.data.errors))
 
+                        this.$router.push({name:'home'})
+
+                    })
+                    .catch(error => this.errors = error.response.data.errors)
 
             }
         }
