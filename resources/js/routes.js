@@ -9,6 +9,7 @@ let logout = require('./components/auth/logout').default;
 // Employee Start
 let employee = require('./components/employee/allEmployee').default;
 let storeemployee = require('./components/employee/addNew').default;
+let edit = require('./components/employee/edit').default;
 
 // Suplier Start Start
 let suplier = require('./components/supliers/allSuplier').default;
@@ -29,6 +30,7 @@ export const routes = [
     // Employee Start
     {path:'/employees',component:employee,name:'employee'},
     {path:'/store-employee',component:storeemployee,name:'Addemployee'},
+    {path:'/edit-employee/:id',component:edit,name:'edit-employee'},
 
     //suplier start
 

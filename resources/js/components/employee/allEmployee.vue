@@ -23,6 +23,7 @@
                                     <th> Photo </th>
                                     <th> Phone </th>
                                     <th> Address </th>
+                                    <th> Nid </th>
                                     <th> Salary </th>
                                     <th> Joining Data </th>
                                     <th> Status </th>
@@ -36,11 +37,12 @@
                                     <td><img :src="employee.photo" id="em_photo" alt=""></td>
                                     <td> {{employee.phone}} </td>
                                     <td> {{employee.address}} </td>
+                                    <td> {{employee.nid}} </td>
                                     <td> {{employee.salary}} </td>
                                     <td> {{employee.joining_date}} </td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-primary" >Edit</a>
-                                        <a href="" class="btn btn-sm btn-danger" >Delete</a>
+                                        <router-link :to="{ name:'edit-employee', params:{id: employee.id} }" class="btn btn-sm btn-primary" >Edit</router-link>
+                                        <a @click="deleteEmployee(employee.id)" class="btn btn-sm btn-danger" >Delete</a>
                                     </td>
                                 </tr>
 
@@ -77,7 +79,7 @@
         computed:{
           filterSearch(){
              return  this.employees.filter(employee => {
-                 return  employee.name.match(this.searchTerm)
+                 return  employee.phone.match(this.searchTerm)
               })
           }
         },
@@ -86,8 +88,38 @@
                 axios.get('/api/employee')
                     .then(({data}) => this.employees = data)
                     .catch()
+            },
+            deleteEmployee(id){
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+                        axios.delete('/api/employee/'+id)
+                            .then(()=>{
+                                this.employees = this.employees.filter(employee => {
+                                    return employee.id != id
+                                })
+                            })
+                            .catch(() => {
+                                this.$router.push({name:'employee'})
+                            })
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+
             }
         },
+
         mounted() {
             this.allEmployee();
         },
