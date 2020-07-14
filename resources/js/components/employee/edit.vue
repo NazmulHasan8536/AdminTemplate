@@ -1,5 +1,13 @@
 
 <template>
+    <div>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mt-5">
+                <li class="breadcrumb-item"><router-link to="home">Home</router-link></li>
+                <li class="breadcrumb-item active" aria-current="page"><router-link to="">Edit Employee</router-link></li>
+            </ol>
+        </nav>
 
     <div class="row justify-content-center">
         <div class="col-lg-12">
@@ -99,6 +107,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 </template>

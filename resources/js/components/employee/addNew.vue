@@ -1,11 +1,19 @@
 
 <template>
 
+    <div>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mt-5">
+                <li class="breadcrumb-item"><router-link to="home">Home</router-link></li>
+                <li class="breadcrumb-item active" aria-current="page"><router-link to="store-employee">Employee</router-link></li>
+            </ol>
+        </nav>
+
     <div class="row justify-content-center">
         <div class="col-lg-12">
-            <div class="card border-0 rounded-lg mt-5">
-                <div class="card-header  d-flex align-items-center justify-content-between mt-4 mb-0">
-                    <h3 class="text-left font-weight-light my-4">Insert New Employee</h3>
+            <div class="card border-0 rounded-lg">
+                <div class="card-header  d-flex align-items-center justify-content-between mb-0">
+                    <h3 class="text-left font-weight-light ">Insert New Employee</h3>
                     <button class="btn btn-success">
                         <router-link to="/employees" class="text-white">All Employee</router-link>
                     </button>
@@ -101,6 +109,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 </template>

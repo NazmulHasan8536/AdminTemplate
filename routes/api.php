@@ -31,3 +31,5 @@ Route::group([
 
 //\App\Employee::
 Route::Resource('/employee','Api\EmployeeController');
+// Supplier
+Route::apiResource('/supplier','Api\SupplierController');

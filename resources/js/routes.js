@@ -12,8 +12,9 @@ let storeemployee = require('./components/employee/addNew').default;
 let edit = require('./components/employee/edit').default;
 
 // Suplier Start Start
-let suplier = require('./components/supliers/allSuplier').default;
-let newSuplier = require('./components/supliers/addSuplier').default;
+let supplier = require('./components/supliers/addSuplier').default;
+let storesuppliers = require('./components/supliers/allSuplier').default;
+let editSupplier = require('./components/supliers/editSupplier').default;
 
 
 
@@ -34,6 +35,8 @@ export const routes = [
 
     //suplier start
 
-    {path:'/supliers',component:suplier,name:'suplier'},
-    {path:'/Add-Suplier',component:newSuplier,name:'AddSuplier'}
+
+    {path:'/Suppliers',component:storesuppliers,name:'suppliers'},
+    {path:'/store-suppliers',component:supplier,name:'Addsupplier'},
+    {path:'/edit-supplier/:id',component:editSupplier,name:'edit-supplier'},
   ]

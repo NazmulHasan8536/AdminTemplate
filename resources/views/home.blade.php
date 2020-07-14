@@ -220,8 +220,8 @@
                     </a>
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <router-link class="nav-link" to="/supliers">All Supplier</router-link></li>
-                            <li class="nav-item"> <router-link class="nav-link" to="/Add-Suplier">Add Supplier</router-link></li>
+                            <li class="nav-item"> <router-link class="nav-link" to="/suppliers">All Supplier</router-link></li>
+                            <li class="nav-item"> <router-link class="nav-link" to="/store-suppliers">Add Supplier</router-link></li>
                         </ul>
                     </div>
                 </li>

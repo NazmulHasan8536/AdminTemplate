@@ -1,5 +1,12 @@
 <template>
+    <div>
 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mt-5">
+            <li class="breadcrumb-item"><router-link to="home">Home</router-link></li>
+            <li class="breadcrumb-item active" aria-current="page"><router-link to="employees">Employee</router-link></li>
+        </ol>
+    </nav>
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper">
@@ -8,16 +15,12 @@
                 <input type="text" class="form-control" v-model="searchTerm" placeholder="Search here">
             </div>
             <div class="row">
-                <div class="col-lg-12 stretch-card">
+                <div class="col-lg-12 stretch-card" style="margin-left: -75px;">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Table with contextual classes</h4>
-                            <p class="card-description table-danger"> Add class <code>.table-{color}</code>
-                            </p>
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th> #id </th>
                                     <th> Name </th>
                                     <th> Email </th>
                                     <th> Photo </th>
@@ -31,7 +34,6 @@
                                 </thead>
                                 <tbody>
                                 <tr v-for="employee in filterSearch" :key="employee.id">
-                                    <td> {{ employee.id}} </td>
                                     <td> {{employee.name}} </td>
                                     <td> {{employee.email}} </td>
                                     <td><img :src="employee.photo" id="em_photo" alt=""></td>
@@ -57,6 +59,7 @@
         <!-- partial:../../partials/_footer.html -->
 
         <!-- partial -->
+    </div>
     </div>
     <!-- main-panel ends -->
 </template>
