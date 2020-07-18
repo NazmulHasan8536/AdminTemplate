@@ -33,3 +33,7 @@ Route::group([
 Route::Resource('/employee','Api\EmployeeController');
 // Supplier
 Route::apiResource('/supplier','Api\SupplierController');
+//Category
+Route::apiResource('/category','Api\CategoryController');
+//product
+Route::apiResource('/product','Api\ProductController');

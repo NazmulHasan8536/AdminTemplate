@@ -198,6 +198,36 @@
                         <i class="mdi mdi-home menu-icon"></i>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                        <span class="menu-title">Categories</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <router-link class="nav-link" to="/categories">All Categories</router-link></li>
+                            <li class="nav-item"> <router-link class="nav-link" to="/store-category">Add Category</router-link></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                        <span class="menu-title">Products</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <router-link class="nav-link" to="products">All Products</router-link></li>
+                            <li class="nav-item"> <router-link class="nav-link" to="store-product">Add Product</router-link></li>
+                        </ul>
+                    </div>
+                </li>
+
+
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                         <span class="menu-title">Employee</span>
