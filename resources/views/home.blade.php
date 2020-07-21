@@ -215,6 +215,20 @@
 
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                        <span class="menu-title">Salary</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <router-link class="nav-link" to="/give-salary">Give Salary</router-link></li>
+                            <li class="nav-item"> <router-link class="nav-link" to="/all-salary">All Salary</router-link></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                         <span class="menu-title">Products</span>
                         <i class="menu-arrow"></i>
                         <i class="mdi mdi-format-list-bulleted menu-icon"></i>
@@ -255,6 +269,22 @@
                         </ul>
                     </div>
                 </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                        <span class="menu-title">Expense</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <router-link class="nav-link" to="/expense">Expenses</router-link></li>
+                            <li class="nav-item"> <router-link class="nav-link" to="/store-expense">Add Expense</router-link></li>
+                        </ul>
+                    </div>
+                </li>
+
 
 
                 <li class="nav-item">
