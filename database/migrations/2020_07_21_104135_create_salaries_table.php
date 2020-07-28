@@ -16,6 +16,7 @@ class CreateSalariesTable extends Migration
         Schema::create('salaries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('employee_id');
+            $table->integer('amount');
             $table->string('name');
             $table->string('email');
             $table->string('salary_given')->nullable();

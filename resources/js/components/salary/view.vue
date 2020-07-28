@@ -4,7 +4,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-5">
                 <li class="breadcrumb-item"><router-link to="home">Home</router-link></li>
-                <li class="breadcrumb-item active" aria-current="page"><router-link to="salary">Salary </router-link></li>
+                <li class="breadcrumb-item active" aria-current="page"><router-link to="/give-salary">salary</router-link></li>
             </ol>
         </nav>
         <!-- partial -->
@@ -21,16 +21,24 @@
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th> Salary Month </th>
-                                        <th> Details </th>
+                                        <th> Name </th>
+                                        <th> Email </th>
+                                        <th> Salary </th>
+                                        <th> Date </th>
+                                        <th> Month </th>
+                                        <th> Year </th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="salary in filterSearch" :key="salary.salary_month">
+                                    <tr v-for="salary in filterSearch" :key="salary.salary_given">
+                                        <td> {{ salary.name}}</td>
+                                        <td> {{ salary.email}}</td>
+                                        <td> {{ salary.salary}}</td>
+                                        <td> {{salary.salary_date}} </td>
                                         <td> {{salary.salary_month}} </td>
-                                        <td>
-                                            <router-link :to="{ name:'view-salary', params:{id: salary.salary_month} }" class="btn btn-sm btn-primary" >Edit</router-link>
-<!--                                            <a @click="deleteEmployee(employee.id)" class="btn btn-sm btn-danger" >Delete</a>-->
+                                        <td> {{salary.salary_year}} </td>
+                                        <td> <router-link :to="{ name:'edit-salary', params:{id: salary.salary_given} }" class="btn btn-sm btn-primary" >Edit Salary</router-link>
+
                                         </td>
                                     </tr>
 
@@ -53,7 +61,7 @@
 <script>
 
     export default {
-        name: "Salary",
+        name: "salary",
         created() {
             if (!User.loggedIn()) {
                 this.$router.push({name: '/'})
@@ -68,49 +76,21 @@
         computed:{
             filterSearch(){
                 return  this.salaries.filter(salary => {
-                    return  salary.salary_month.match(this.searchTerm)
+                    return  salary.name.match(this.searchTerm)
                 })
             }
         },
         methods:{
-            allSalary(){
-                axios.get('/api/salary')
+            viewSalary(){
+                let id = this.$route.params.id
+                axios.get ('/api/salary/view/'+id)
                     .then(({data}) => this.salaries = data)
-                    .catch()
+                    .catch(error => this.errors = error.response.data.errors)
             },
-            deleteEmployee(id){
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
-                }).then((result) => {
-                    if (result.value) {
-                        axios.delete('/api/employee/'+id)
-                            .then(()=>{
-                                this.employees = this.employees.filter(employee => {
-                                    return employee.id != id
-                                })
-                            })
-                            .catch(() => {
-                                this.$router.push({name:'employee'})
-                            })
-                        Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        )
-                    }
-                })
-
-            }
         },
 
         mounted() {
-            this.allSalary();
+            this.viewSalary();
         },
 
 

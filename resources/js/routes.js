@@ -13,6 +13,8 @@ let edit = require('./components/employee/edit').default;
 let supplier = require('./components/supliers/addSuplier').default;
 let storesuppliers = require('./components/supliers/allSuplier').default;
 let editSupplier = require('./components/supliers/editSupplier').default;
+//Customer Start..........
+
 // Category Start...........
 let category = require('./components/catagories/create').default;
 let storeCategory = require('./components/catagories/index').default;
@@ -28,6 +30,13 @@ let editexpense = require('./components/expense/edit').default;
 //Salary.............
 let all_employee  = require('./components/salary/all_Employee').default;
 let pay_salary  = require('./components/salary/create').default;
+let allSalary  = require('./components/salary/index').default;
+let viewSalary  = require('./components/salary/view').default;
+let editSalary  = require('./components/salary/edit').default;
+// Stock
+let stock  = require('./components/products/stock').default;
+let editStock  = require('./components/products/editStock').default;
+
 
 export const routes = [
     //Authentication.........
@@ -63,9 +72,14 @@ export const routes = [
     {path:'/edit-expense/:id',component:editexpense,name:'edit-expense'},
 
     //Salary............
-    {path:'/give-salary',component:all_employee,name:'give-salary'},
+    {path:'/given-salary',component:all_employee,name:'given-salary'},
     {path:'/pay-salary/:id',component:pay_salary,name:'pay-salary'},
+    {path:'/salary',component:allSalary,name:'salary'},
+    {path:'/view-salary/:id',component:viewSalary,name:'view-salary'},
+    {path:'/edit-salary/:id',component:editSalary,name:'edit-salary'},
 
-
+    //stock............
+    {path:'/stocks',component:stock,name:'stocks'},
+    {path:'/editStock/:id',component:editStock,name:'editStock'},
 
 ]

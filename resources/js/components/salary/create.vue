@@ -17,7 +17,7 @@
 
                     </div>
                     <div class="card-body" style="border: 1px solid antiquewhite;">
-                        <form @submit.prevent="salaryUpdate" >
+                        <form @submit.prevent="insertSalaryMOnth" >
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -39,7 +39,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="small mb-1" >Category</label>
-                                        <select class="browser-default custom-select custom-select-lg mb-3" v-model="form.salary_given">
+                                        <select class="browser-default custom-select custom-select-lg mb-3" v-model="form.salary_month">
                                             <option value="January"  >January</option>
                                             <option  value="February">February</option>
                                             <option  value="march">march</option>
@@ -96,7 +96,7 @@
                 form: {
                     name: null,
                     email: null,
-                    salary_given: null,
+                    salary_month: null,
                     salary: null,
 
                 },
@@ -113,7 +113,7 @@
 
         methods:{
 
-            salaryUpdate(){
+            insertSalaryMOnth(){
                 let id = this.$route.params.id
 
             axios.post ('/api/salary/paid/'+id,this.form)

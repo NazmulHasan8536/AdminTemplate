@@ -221,8 +221,8 @@
                     </a>
                     <div class="collapse" id="ui-basic">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"> <router-link class="nav-link" to="/give-salary">Give Salary</router-link></li>
-                            <li class="nav-item"> <router-link class="nav-link" to="/all-salary">All Salary</router-link></li>
+                            <li class="nav-item"> <router-link class="nav-link" to="/given-salary">Give Salary</router-link></li>
+                            <li class="nav-item"> <router-link class="nav-link" to="/salary">All Salary</router-link></li>
                         </ul>
                     </div>
                 </li>
@@ -288,10 +288,10 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="pages/forms/basic_elements.html">
-                        <span class="menu-title">Forms</span>
+                    <router-link class="nav-link" to="/stocks">
+                        <span class="menu-title">Stock</span>
                         <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-                    </a>
+                    </router-link>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="pages/charts/chartjs.html">
