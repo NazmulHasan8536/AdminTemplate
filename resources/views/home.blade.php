@@ -6,10 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Purple Admin</title>
 
+{{--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">--}}
     <link rel="stylesheet" href="{{asset('./css/app.css')}}">
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('./backend/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
-    <link rel="stylesheet" href="{{asset('./backend/assets/vendors/css/vendor.bundle.base.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('./backend/assets/vendors/css/vendor.bundle.base.css')}}">--}}
+
+
+<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
@@ -193,10 +202,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                        <span class="menu-title">Dashboard</span>
-                        <i class="mdi mdi-home menu-icon"></i>
-                    </a>
+                    <router-link class="nav-link" to="/pos">
+                        <span class="menu-title">POS</span>
+                        <i class="mdi mdi-home-account menu-icon"></i>
+                    </router-link>
                 </li>
 
                 <li class="nav-item">
@@ -226,6 +235,7 @@
                         </ul>
                     </div>
                 </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
@@ -266,6 +276,21 @@
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"> <router-link class="nav-link" to="/suppliers">All Supplier</router-link></li>
                             <li class="nav-item"> <router-link class="nav-link" to="/store-suppliers">Add Supplier</router-link></li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                        <span class="menu-title">Customers</span>
+                        <i class="menu-arrow"></i>
+                        <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <router-link class="nav-link" to="/customers">All Customers</router-link></li>
+                            <li class="nav-item"> <router-link class="nav-link" to="/store-customer">Add Customer</router-link></li>
                         </ul>
                     </div>
                 </li>
@@ -358,6 +383,10 @@
 <!-- container-scroller -->
 
 <script src="{{asset('./js/app.js')}}"></script>
+
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
 

@@ -118,7 +118,7 @@
 
     export default {
         name: "employee",
-        created() {
+        mounted() {
             if (!User.loggedIn()) {
                 this.$router.push({name: '/'})
             }

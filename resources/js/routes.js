@@ -1,9 +1,10 @@
+//auth.........
 let homepage = require('./components/auth/home').default;
 let login = require('./components/auth/login').default;
 let register = require('./components/auth/register').default;
 let forget = require('./components/auth/forget').default;
 let logout = require('./components/auth/logout').default;
-// Auth ENd
+// Auth ENd......
 
 // Employee Start.......
 let employee = require('./components/employee/allEmployee').default;
@@ -14,7 +15,9 @@ let supplier = require('./components/supliers/addSuplier').default;
 let storesuppliers = require('./components/supliers/allSuplier').default;
 let editSupplier = require('./components/supliers/editSupplier').default;
 //Customer Start..........
-
+let allcustomers = require('./components/customer/index').default;
+let storecustomer = require('./components/customer/create').default;
+let editCustomer = require('./components/customer/edit').default;
 // Category Start...........
 let category = require('./components/catagories/create').default;
 let storeCategory = require('./components/catagories/index').default;
@@ -36,6 +39,11 @@ let editSalary  = require('./components/salary/edit').default;
 // Stock
 let stock  = require('./components/products/stock').default;
 let editStock  = require('./components/products/editStock').default;
+
+
+
+//print of sale(pos).........
+let pos = require('./components/pos/postofserveice').default;
 
 
 export const routes = [
@@ -61,6 +69,11 @@ export const routes = [
     {path:'/categories',component:storeCategory,name:'categories'},
     {path:'/edit-category/:id',component:editCategory,name:'edit-category'},
 
+    //customers Start.........
+    {path:'/store-customer',component:storecustomer,name:'store-customer'},
+    {path:'/customers',component:allcustomers,name:'customers'},
+    {path:'/edit-customer/:id',component:editCustomer,name:'edit-customer'},
+
     //products Start........
     {path:'/store-product',component:storeproduct,name:'store-product'},
     {path:'/products',component:products,name:'products'},
@@ -81,5 +94,8 @@ export const routes = [
     //stock............
     {path:'/stocks',component:stock,name:'stocks'},
     {path:'/editStock/:id',component:editStock,name:'editStock'},
+
+    //pos..............
+    {path:'/pos',component:pos,name:'pos'},
 
 ]
